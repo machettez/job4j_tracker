@@ -6,12 +6,6 @@ public class Error {
     private int status;
     private String message;
 
-    public void printInfo() {
-        System.out.println("Условие: " + active);
-        System.out.println("Код: " + status);
-        System.out.println("Программа: " + message);
-    }
-
     public Error() {
 
     }
@@ -20,6 +14,12 @@ public class Error {
         this.active = active;
         this.status = status;
         this.message = message;
+    }
+
+    public void printInfo() {
+        System.out.println("Условие: " + active);
+        System.out.println("Код: " + status);
+        System.out.println("Программа: " + message);
     }
 
     public static void main(String[] args) {
