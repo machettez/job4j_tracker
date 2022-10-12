@@ -2,6 +2,7 @@ package ru.job4j.oop;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 public class PointTest {
 
@@ -11,7 +12,7 @@ public class PointTest {
         Point a = new Point(0, 0);
         Point b = new Point(2, 0);
         double dist = a.distance(b);
-        assertThat(dist).isEqualTo(expected);
+        assertThat(dist).isCloseTo(expected, offset(0.001));
     }
 
     @Test
@@ -20,7 +21,7 @@ public class PointTest {
         Point a = new Point(0, 1);
         Point b = new Point(0, 1);
         double dist = a.distance(b);
-        assertThat(dist).isEqualTo(expected);
+        assertThat(dist).isCloseTo(expected, offset(0.001));
     }
 
     @Test
@@ -29,7 +30,7 @@ public class PointTest {
         Point a = new Point(2, 2);
         Point b = new Point(1, 2);
         double dist = a.distance(b);
-        assertThat(dist).isEqualTo(expected);
+        assertThat(dist).isCloseTo(expected, offset(0.001));
     }
 
 }
