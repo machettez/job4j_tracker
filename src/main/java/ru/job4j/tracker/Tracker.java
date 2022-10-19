@@ -8,6 +8,16 @@ public class Tracker {
     private int ids = 1;
     private int size = 0;
 
+    public boolean replace(int id, Item item) {
+        int i = indexOf(id);
+        boolean rsl = i != -1;
+        if (rsl) {
+            item.setId(id);
+            items[i] = item;
+        }
+        return rsl;
+    }
+
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
@@ -30,15 +40,20 @@ public class Tracker {
         return Arrays.copyOf(rsl, test);
     }
 
-    public Item findById(int id) {
-        Item rsl = null;
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int i = 0; i < size; i++) {
             if (items[i].getId() == id) {
-                rsl = items[i];
+                rsl = i;
                 break;
             }
         }
         return rsl;
+    }
+
+    public Item findById(int id) {
+        int i = indexOf(id);
+        return i != -1 ? items[i] : null;
     }
 
 }
