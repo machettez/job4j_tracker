@@ -9,7 +9,12 @@ public class Tracker {
     private int size = 0;
 
     public boolean delete(int id) {
-        items[indexOf(id)] = null;
+        int index = indexOf(id);
+        int start = index + 1;
+        int length = size - index - 1;
+        System.arraycopy(items, start, items, index, length);
+        items[size - 1] = null;
+        size--;
         return true;
     }
 
