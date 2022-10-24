@@ -8,6 +8,11 @@ public class Tracker {
     private int ids = 1;
     private int size = 0;
 
+    public boolean delete(int id) {
+        items[indexOf(id)] = null;
+        return true;
+    }
+
     public boolean replace(int id, Item item) {
         int i = indexOf(id);
         boolean rsl = i != -1;
@@ -29,15 +34,15 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        int test = 0;
+        int count = 0;
         Item[] rsl = new Item[size];
         for (int i = 0; i < size; i++) {
             if (key.equals(items[i].getName())) {
-                rsl[test] = items[i];
-                test++;
+                rsl[count] = items[i];
+                count++;
             }
         }
-        return Arrays.copyOf(rsl, test);
+        return Arrays.copyOf(rsl, count);
     }
 
     private int indexOf(int id) {
