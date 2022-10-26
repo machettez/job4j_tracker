@@ -14,20 +14,12 @@ public class Matches {
             System.out.println(player + ", введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
             int left = count - matches;
-            if (matches == 1) {
-                System.out.println("На столе осталось " + left + " спичек");
-                count = left;
-                turn = !turn;
-            } else if (matches == 2 && count >= 2) {
-                System.out.println("На столе осталось " + left + " спичек");
-                count = left;
-                turn = !turn;
-            } else if (matches == 3 && count >= 3) {
+            if (matches >= 1 && matches <= Math.min(3, count)) {
                 System.out.println("На столе осталось " + left + " спичек");
                 count = left;
                 turn = !turn;
             } else {
-                System.out.println("Ошибка");
+                System.out.println("Ошибка. Введите число от 1 до 3");
             }
             System.out.println();
         }
